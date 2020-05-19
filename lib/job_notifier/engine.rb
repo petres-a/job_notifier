@@ -17,7 +17,7 @@ module JobNotifier
       require_relative "./logger"
 
       ActiveSupport.on_load :action_controller do
-        helper(JobNotifier::ApplicationHelper)
+        helper(JobNotifier::ApplicationHelper) if respond_to?(:helper)
       end
 
       if JobNotifier.silenced_log
